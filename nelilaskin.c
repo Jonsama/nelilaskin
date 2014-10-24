@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main(void){
-	int valinta=1, luku1, luku2, summa, erotus, tulo;
+	int valinta=1, luku1, luku2, summa, erotus, tulo, osam;
 	while(valinta!=0){
 		 
 		printf("\nNelilaskin\n");
@@ -36,6 +36,17 @@ int main(void){
 			scanf("%d", &luku2);
 			tulo = luku1 * luku2;
 			printf("Tuloksi tuli %d\n", tulo);
+			break;
+		case 4:
+			printf("Anna kokonaisluku: ");
+			scanf("%d", &luku1);
+			printf("Anna toinen kokonaisluku: ");
+			scanf("%d", &luku2);
+			if (luku2 == 0){
+				break;
+			}
+			osam = luku1 / luku2;
+			printf("Osamääräksi tuli %d\n", osam);
 			break;
 		case 0:
 			printf("Kiitos ohjelman käytöstä!\n");
