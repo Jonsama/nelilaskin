@@ -1,17 +1,27 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 int main(void){
-	int valinta=1, luku1, luku2, summa, erotus, tulo, osam;
-	while(valinta!=0){
-		 
+	int valinta = 1, luku1, luku2, summa, erotus, tulo, osam;
+	char *pEnd; //THIS
+	char getScanf[255]; //THIS
+	while (valinta != 0){
+
 		printf("\nNelilaskin\n");
 		printf("Toiminnot:\n");
 		printf("1)Yhteenlasku\n");
-		printf("2)Vähennyslasku\n");
+		printf("2)V‰hennyslasku\n");
 		printf("3)Kertolasku\n");
 		printf("4)Jakolasku\n");
 		printf("0)Lopeta\n");
 		printf("Valitse toiminto 0-4: ");
-		scanf("%d",&valinta);
+		scanf("%s", getScanf);//THIS
+		valinta = strtol(getScanf, &pEnd, 10);//THIS
+		if (*pEnd != '\0')
+		{
+			valinta = -1;
+		}
+
 		switch (valinta){
 		case 1:
 			printf("Anna kokonaisluku: ");
@@ -46,16 +56,16 @@ int main(void){
 				break;
 			}
 			osam = luku1 / luku2;
-			printf("Osamääräksi tuli %d\n", osam);
+			printf("Osam‰‰r‰ksi tuli %d\n", osam);
 			break;
 		case 0:
-			printf("Kiitos ohjelman käytöstä!\n");
+			printf("Kiitos ohjelman k‰ytˆst‰!\n");
 			return 0;
+			break;
+		default:
+			printf("\nV‰‰r‰ valinta!\n");
 			break;
 		}
 	}
 	return 0;
 }
-
-		
-
